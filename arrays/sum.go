@@ -8,13 +8,16 @@ func Sum(numbers []int) (sum int)  {
 }
 
 func SumAll(arrays ...[]int) (sumArray []int) {
-	var sum int
 	for _, array := range arrays {
-		sum = 0
-		for _, n := range array {
-			sum += n
-		}
-		sumArray = append(sumArray, sum)
+		sumArray = append(sumArray, Sum(array))
+	}
+	return
+}
+
+func SumAllTails(arrays ...[]int) (sumArray []int) {
+	for _, array := range arrays {
+		tail := array[1:]
+		sumArray = append(sumArray, Sum(tail))
 	}
 	return
 }
