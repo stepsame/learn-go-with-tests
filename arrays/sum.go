@@ -6,3 +6,15 @@ func Sum(numbers []int) (sum int)  {
 	}
 	return
 }
+
+func SumAll(arrays ...[]int) (sumArray []int) {
+	var sum int
+	for _, array := range arrays {
+		sum = 0
+		for _, n := range array {
+			sum += n
+		}
+		sumArray = append(sumArray, sum)
+	}
+	return
+}
